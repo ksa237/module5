@@ -21,7 +21,7 @@ public class Main {
     }
 
     public static int chooseHobbyRecursive(int[] startNumbers, int day, int[] memory) {
-        //System.out.println(">>> " + day);
+        System.out.println(">>> " + day);
         int hobby = 0;
         //day - глубина рекурсии
         int prev = startNumbers[3];
