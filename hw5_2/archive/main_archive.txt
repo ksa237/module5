@@ -21,13 +21,26 @@ public class Main {
     }
 
     public static int chooseHobbyRecursive(int[] startNumbers, int day, int[] memory) {
-        int prev = startNumbers[startNumbers.length - 1];
-        int prePrevPrev = startNumbers[startNumbers.length - 3];
+        System.out.println(">>> " + day);
+        int hobby = 0;
+        //day - глубина рекурсии
+        int prev = startNumbers[3];
+        int prePrevPrev = startNumbers[1];
+        if (day == 1) {
+            hobby = (prev * prePrevPrev) % 10 + 1;
+        } else {
+            day--;
+            hobby = (prev * prePrevPrev) % 10 + 1;
+            int[] startNumbersR = new int[4];
+            startNumbersR[0] = startNumbers[1];
+            startNumbersR[1] = startNumbers[2];
+            startNumbersR[2] = startNumbers[3];
+            startNumbersR[3] = hobby;
 
-        if (prev==23 && prePrevPrev ==1){
-
+            hobby = chooseHobbyRecursive(startNumbersR, day, new int[day]);
         }
 
+        return hobby;
 
     }
 
