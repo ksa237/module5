@@ -26,8 +26,12 @@ public class Main {
         int[] answer = new int[10];
 
         for (int[] arNext : teams) { //artInt - одномерный массив, топ-команды одного региона
+            //System.out.println("#1 " + Arrays.toString(arNext));
+            //System.out.println("#2 " + Arrays.toString(answer));
             int[] preAnswer = merge(answer, arNext);
             answer = preAnswer;
+            //System.out.println("merge: " + Arrays.toString(answer));
+            //System.out.println();
         }
         return answer;
     }
@@ -41,29 +45,35 @@ public class Main {
         int ib = 0;
         int ic = 0;
 
-        while (ia < teamA.length && ib < teamB.length && ic < 10) {
+//        while (ia < teamA.length || ib < teamB.length) {
+//
+//            if (ia < teamA.length && ib < teamB.length) {
+//
+//                if (teamA[ia] >= teamB[ib]) {
+//                    c[ic] = teamA[ia];
+//                    ia += 1;
+//                } else {
+//                    c[ic] = teamB[ib];
+//                    ib += 1;
+//                }
+//
+//            } else if (ib == teamB.length) {
+//                c[ic] = teamA[ia];
+//                ia = +1;
+//            } else if (ia == teamA.length) {
+//                c[ic] = teamB[ib];
+//                ib += 1;
+//            }
+//
+//            if (ic == 9) {
+//                break;
+//            }
+//            ic += 1;
+//        }
 
-            if (teamA[ia] >= teamB[ib]) {
-                c[ic] = teamA[ia];
-                ia += 1;
-            } else {
-                c[ic] = teamB[ib];
-                ib += 1;
-            }
-            ic += 1;
-        }
 
-        while (ia < teamA.length && ic < 10) {
-            c[ic] = teamA[ia];
-            ia = +1;
-            ic += 1;
-        }
 
-        while (ib < teamB.length && ic < 10) {
-            c[ic] = teamB[ib];
-            ib += 1;
-            ic += 1;
-        }
+
 
         return c;
     }
