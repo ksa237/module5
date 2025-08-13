@@ -39,22 +39,23 @@ public class LinkedStack {
         // вывод должен быть в точности как в комментариях к main
         // при этом этот метод не должен менять стек!
 
-        String info = "";
+        StringBuilder info = new StringBuilder();
 
         if (size == 0) {
-            info = "EMPTY";
+            info.append("EMPTY");
         } else if (size == 1) {
-            info = Integer.toString(tail.getValue());
+            info.append(tail.getValue());
         } else {
-            info = Integer.toString(tail.getValue());
+            info.append(tail.getValue());
             Node prev = tail.getPrev();
             while (prev != null) {
-                info = info + " -> " + prev.getValue();
+                info.append(" -> ");
+                info.append(prev.getValue());
                 prev = prev.getPrev();
             }
         }
 
-        return info;
+        return info.toString();
 
     }
 }
