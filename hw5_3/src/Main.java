@@ -55,7 +55,7 @@ public class Main {
 
         while (ia < teamA.length && ic < 10) {
             c[ic] = teamA[ia];
-            ia = +1;
+            ia += 1;
             ic += 1;
         }
 
