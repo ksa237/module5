@@ -41,27 +41,30 @@ public class Main {
         int ib = 0;
         int ic = 0;
 
-        while (ia < teamA.length && ib < teamB.length && ic < 10) {
+        while (ia < teamA.length || ib < teamB.length) {
 
-            if (teamA[ia] >= teamB[ib]) {
-                c[ic] = teamA[ia];
-                ia += 1;
-            } else {
+            if(ic == c.length) {
+                break;
+            }
+
+            if (ia == teamA.length) {
                 c[ic] = teamB[ib];
                 ib += 1;
+
+            } else if (ib == teamB.length) {
+                c[ic] = teamA[ia];
+                ia += 1;
+
+            } else {
+
+                if (teamA[ia] >= teamB[ib]) {
+                    c[ic] = teamA[ia];
+                    ia += 1;
+                } else {
+                    c[ic] = teamB[ib];
+                    ib += 1;
+                }
             }
-            ic += 1;
-        }
-
-        while (ia < teamA.length && ic < 10) {
-            c[ic] = teamA[ia];
-            ia += 1;
-            ic += 1;
-        }
-
-        while (ib < teamB.length && ic < 10) {
-            c[ic] = teamB[ib];
-            ib += 1;
             ic += 1;
         }
 
