@@ -43,31 +43,19 @@ public class Main {
 
         while (ia < teamA.length || ib < teamB.length) {
 
-            if(ic == c.length) {
+            if (ic == c.length) {
                 break;
             }
-
-            if (ia == teamA.length) {
-                c[ic] = teamB[ib];
-                ib += 1;
-
-            } else if (ib == teamB.length) {
+            if (teamA[ia] >= teamB[ib]) {
                 c[ic] = teamA[ia];
                 ia += 1;
-
             } else {
-
-                if (teamA[ia] >= teamB[ib]) {
-                    c[ic] = teamA[ia];
-                    ia += 1;
-                } else {
-                    c[ic] = teamB[ib];
-                    ib += 1;
-                }
+                c[ic] = teamB[ib];
+                ib += 1;
             }
+
             ic += 1;
         }
-
         return c;
     }
 }
