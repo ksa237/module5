@@ -21,12 +21,31 @@ public class Main {
     }
 
     public static int chooseHobbyRecursive(int[] startNumbers, int day, int[] memory) {
-        int prev = startNumbers[startNumbers.length - 1];
-        int prePrevPrev = startNumbers[startNumbers.length - 3];
+        //System.out.println(">>> " + day);
 
-        if (prev==23 && prePrevPrev ==1){
-
+        if (day > 0) {
+            if (memory[day - 1] > 0) {
+                return memory[day - 1];
+            }
         }
+
+        if (day == 0) {
+            return startNumbers[startNumbers.length - 1];
+        }
+        if (day == -1) {
+            return startNumbers[startNumbers.length - 2];
+        }
+        if (day == -2) {
+            return startNumbers[startNumbers.length - 3];
+        }
+
+
+        int prev = chooseHobbyRecursive(startNumbers, day - 1, memory);
+        int prePrevPrev = chooseHobbyRecursive(startNumbers, day - 3, memory);
+
+        int result = (prev * prePrevPrev) % 10 + 1;
+        memory[day - 1] = result;
+        return result;
 
 
     }
